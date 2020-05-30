@@ -1,0 +1,21 @@
+<idea-plugin>
+    <id>wily.wily-pycharm</id>
+    <name>Wily</name>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+    <description><![CDATA[
+    Code complexity analyser
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.python</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <localInspection language="Python" enabledByDefault="true" groupName="Wily" hasStaticDescription="true" displayName="Python module inspection" shortName="PythonModuleInspection" implementationClass="wily.inspections.PythonModuleInspection" />
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>
