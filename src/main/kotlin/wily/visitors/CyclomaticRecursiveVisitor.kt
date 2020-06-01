@@ -2,10 +2,8 @@ package wily.visitors
 
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiRecursiveElementVisitor
-import com.intellij.psi.util.elementType
 import com.jetbrains.python.psi.PyForStatement
 import com.jetbrains.python.psi.PyIfStatement
-import kotlin.reflect.typeOf
 
 class CyclomaticRecursiveVisitor() : PsiRecursiveElementVisitor() {
     var nodeCount : Int = 0

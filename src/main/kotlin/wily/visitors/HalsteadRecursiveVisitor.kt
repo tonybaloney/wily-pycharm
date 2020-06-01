@@ -7,13 +7,13 @@ import com.intellij.psi.util.elementType
 import com.jetbrains.python.psi.PyElement
 import kotlin.math.log2
 
-class HalsteadRecursiveVisitor() : PsiRecursiveElementVisitor() {
+class HalsteadRecursiveVisitor : PsiRecursiveElementVisitor() {
     private var operators: HashSet<IElementType?> = hashSetOf()
     private var operands: HashSet<String> = hashSetOf()
     private var operandsCount: Int = 0
     private var operatorsCount: Int = 0
 
-    override fun visitElement(element: PsiElement?) {
+    override fun visitElement(element: PsiElement) {
         if (!operators.contains(element.elementType))
             this.operators.add(element.elementType)
         operatorsCount++

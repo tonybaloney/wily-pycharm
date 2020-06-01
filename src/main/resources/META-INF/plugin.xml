@@ -1,10 +1,10 @@
 <idea-plugin>
     <id>wily.wily-pycharm</id>
     <name>Wily</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <vendor email="anthonyshaw@apache.org" url="https://github.com/tonybaloney/pycharm-security/">Anthony Shaw</vendor>
 
     <description><![CDATA[
-    Code complexity analyser
+    Code complexity analyser and annotator for PyCharm or IntelliJ IDEs with the Python Extension
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
@@ -13,6 +13,10 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <localInspection language="Python" enabledByDefault="true" groupName="Wily" hasStaticDescription="true" displayName="Python module inspection" shortName="PythonModuleInspection" implementationClass="wily.inspections.PythonModuleInspection" />
+    </extensions>
+    <extensions defaultExtensionNs="Pythonid">
+        <pyAnnotator implementation="wily.annotators.PyClassAnnotator"/>
+        <pyAnnotator implementation="wily.annotators.PyFunctionAnnotator"/>
     </extensions>
 
     <actions>
