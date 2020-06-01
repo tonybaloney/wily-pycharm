@@ -16,6 +16,6 @@ class PyFunctionAnnotator : PyAnnotator(){
         halVisitor.visitElement(node)
         cyclomaticVisitor.visitElement(node)
         val mi = MI(halVisitor.volume(), cyclomaticVisitor.complexity(), node.loc()).roundToInt()
-        this.holder.createAnnotation(HighlightSeverity.INFORMATION, node.nameNode!!.textRange, "${node.qualifiedName} Maintainability: $mi %, Cyclomatic Complexity: ${cyclomaticVisitor.complexity()}")
+        this.holder.createAnnotation(HighlightSeverity.INFORMATION, node.nameNode!!.textRange, "${node.name} Maintainability: $mi %")
     }
 }
