@@ -1,9 +1,9 @@
 package wily.annotators
 
-import com.intellij.lang.annotation.HighlightSeverity
 import com.jetbrains.python.psi.PyClass
 import com.jetbrains.python.validation.PyAnnotator
 import wily.MI
+import wily.asHighlightingSeverity
 import wily.utils.loc
 import wily.visitors.CyclomaticRecursiveVisitor
 import wily.visitors.HalsteadRecursiveVisitor
@@ -16,6 +16,7 @@ class PyClassAnnotator : PyAnnotator(){
         halVisitor.visitElement(node)
         cyclomaticVisitor.visitElement(node)
         val mi = MI(halVisitor.volume(), cyclomaticVisitor.complexity(), node.loc()).roundToInt()
-        this.holder.createAnnotation(HighlightSeverity.INFORMATION, node.nameNode!!.textRange, "${node.name} Maintainability: $mi %")
+        val range = node.nameNode?.textRange ?: node.textRange
+        this.holder.createAnnotation(asHighlightingSeverity(mi), range, "${node.name} Maintainability: $mi %")
     }
 }
