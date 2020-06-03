@@ -8,7 +8,7 @@
 
 A plugin to analyse maintainability of Python classes, functions and modules.
 
-* Available as a PyCharm plugin on the [Jetbrains plugin marketplace](https://plugins.jetbrains.com/plugin/13609-python-security)
+* Available as a PyCharm plugin on the [Jetbrains plugin marketplace](https://plugins.jetbrains.com/plugin/14424-wily)
 
 ![](https://github.com/tonybaloney/wily-pycharm/raw/master/doc/_static/screenshot.png)
 
