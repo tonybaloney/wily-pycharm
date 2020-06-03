@@ -10,6 +10,8 @@ A plugin to analyse maintainability of Python classes, functions and modules.
 
 * Available as a PyCharm plugin on the [Jetbrains plugin marketplace](https://plugins.jetbrains.com/plugin/13609-python-security)
 
+![](https://github.com/tonybaloney/wily-pycharm/raw/master/doc/_static/screenshot.png)
+
 ## Release History
 
 See [Release History](HISTORY.md) for the release history.
