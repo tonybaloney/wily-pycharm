@@ -10,6 +10,7 @@
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.python</depends>
+    <idea-version since-build="201.5985.*" until-build="202.*" />
 
     <extensions defaultExtensionNs="com.intellij">
         <localInspection language="Python" enabledByDefault="false" groupName="Wily" hasStaticDescription="true" displayName="Python module complexity inspection" shortName="PythonModuleInspection" implementationClass="wily.inspections.PythonModuleInspection" />
