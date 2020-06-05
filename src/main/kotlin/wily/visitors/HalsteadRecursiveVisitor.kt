@@ -5,6 +5,8 @@ import com.intellij.psi.PsiRecursiveElementVisitor
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.elementType
 import com.jetbrains.python.psi.PyElement
+import com.jetbrains.python.psi.PyExpressionStatement
+import com.jetbrains.python.psi.PyStatement
 import kotlin.math.log2
 
 class HalsteadRecursiveVisitor : PsiRecursiveElementVisitor() {
@@ -14,8 +16,9 @@ class HalsteadRecursiveVisitor : PsiRecursiveElementVisitor() {
     private var operatorsCount: Int = 0
 
     override fun visitElement(element: PsiElement) {
-        if (!operators.contains(element.elementType))
-            this.operators.add(element.elementType)
+        if (element is PyExpressionStatement || element is PyStatement)
+            if (!operators.contains(element.elementType))
+                this.operators.add(element.elementType)
         operatorsCount++
         if (element is PyElement) {
             operandsCount++

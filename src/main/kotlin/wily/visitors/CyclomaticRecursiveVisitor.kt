@@ -2,20 +2,18 @@ package wily.visitors
 
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiRecursiveElementVisitor
-import com.jetbrains.python.psi.PyForStatement
-import com.jetbrains.python.psi.PyIfStatement
+import com.jetbrains.python.psi.PyConditionalExpression
+import com.jetbrains.python.psi.PyStatementWithElse
 
-class CyclomaticRecursiveVisitor() : PsiRecursiveElementVisitor() {
-    var nodeCount : Int = 0
-    var branchCount : Int = 0
-
-    val branchTypes = arrayOf(
-        PyIfStatement::class.java,
-        PyForStatement::class.java) // TODO etc.
+class CyclomaticRecursiveVisitor : PsiRecursiveElementVisitor() {
+    private var nodeCount : Int = 0
+    private var branchCount : Int = 0
 
     override fun visitElement(element: PsiElement) {
         nodeCount++
-        if (branchTypes.contains(element::class.java))
+
+        if (element is PyStatementWithElse ||
+            element is PyConditionalExpression)
             branchCount++
         super.visitElement(element)
     }
